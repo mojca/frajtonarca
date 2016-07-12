@@ -1,0 +1,176 @@
+\setuplayout
+	[topspace=2cm,header=30pt,footer=20pt,headerdistance=0pt,height=27cm,
+	 backspace=2cm,width=middle]
+\setuppagenumbering
+	[location=]
+
+\usemodule
+	[tikz]
+\usetikzlibrary
+	[math,calc,positioning]
+
+\setupbodyfont
+	[lucidaot]
+
+\starttext
+
+\setupheadertexts
+	[{\bfc C-F-B}]
+\setupfootertexts
+	[{\it http://github.com/mojca/frajtonarca}]
+
+\def\r#1{$^{#1}$}
+% ===========
+% Besses Push
+% ===========
+\startbuffer[bassesPush]
+\hbox{\starttikzpicture
+	[buttonpush/.style={circle,draw=blue!80,fill=blue!10,thick,minimum size=9mm,inner sep=0pt},
+	 node distance=5mm]
+	\foreach \i in {1,2,3,4,5,6} {
+		\coordinate (c\i) at (0,\i);
+	}
+	\foreach \i in {7,8,9,10,11} {
+		\coordinate (c\i) at ($(1.2,-5.5) + (0,\i)$);
+	}
+	\foreach \button/\pitch in {1/c, 2/C, 3/f, 4/F, 5/b, 6/B, 7/G, 8/a, 9/A, 10/d, 11/D} {
+		\ifnum\button<7\relax
+			% TODO: the color should not be hardcoded here
+			% \node[buttonpull] (b\button) at (c\button) [label=left:{\tfx\color[darkblue]{\button}}] {\ss\strut\pitch};
+			\node[buttonpush] (b\button) at (c\button) {\ss\strut\pitch};
+			\node (lb\button) [left=of c\button] {\tfx\color[darkblue]{\button}};
+		\else
+			\node[buttonpush] (b\button) at (c\button) {\ss\strut\pitch};
+			\node (lb\button) [right=of c\button] {\tfx\color[darkblue]{\button}}; % {\hbox to 1em{\hss\button}}}
+		\fi
+	}
+\stoptikzpicture}
+\stopbuffer
+% ===========
+% Besses Pull
+% ===========
+\startbuffer[bassesPull]
+\hbox{\starttikzpicture
+	[buttonpull/.style={circle,draw=red!80,thick,minimum size=9mm,inner sep=0pt}]
+	\foreach \i in {1,2,3,4,5,6} {
+		\coordinate (c\i) at (0,\i);
+	}
+	\foreach \i in {7,8,9,10,11} {
+		\coordinate (c\i) at ($(1.2,-5.5) + (0,\i)$);
+	}
+	\foreach \button/\pitch in {1/g, 2/G, 3/c, 4/C, 5/f, 6/F, 7/E, 8/dm, 9/D, 10/es, 11/Es} {
+		\ifnum\button<7\relax
+			\node[buttonpull] (b\button) at (c\button) [label=left:{\tfx\color[darkred]{\button}}] {\ss\strut\pitch};
+		\else
+			\node[buttonpull] (b\button) at (c\button) [label=right:{\tfx\color[darkred]{\hbox to 1em{\hss\button}}}] {\ss\strut\pitch};
+		\fi
+	}
+\stoptikzpicture}
+\stopbuffer
+% ===========
+% Melody Push
+% ===========
+\startbuffer[melodyPush]
+\hbox{\starttikzpicture
+	[x=1.3cm,y=1.0cm,
+	 node distance=3.5mm,
+	 buttonpush/.style={circle,draw=blue!80,fill=blue!10,thick,minimum size=9mm,inner sep=0pt},
+	 ]
+	\foreach \i in {-2,-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14} {
+		\coordinate (cA\i) at ($( 1,0.5) + (0,\i)$);
+		\coordinate (cB\i) at ($( 0,0.0) + (0,\i)$);
+		\coordinate (cC\i) at ($(-1,0.5) + (0,\i)$);
+		\coordinate (cD\i) at ($(-2,1.0) + (0,\i)$);
+	}
+	\foreach \bletter/\bnumber/\pitch in {
+		A/0/c, A/1/e, A/2/g,    A/3/c\r1, A/4/e\r1, A/5/g\r1, A/6/c\r2, A/7/e\r2, A/8/g\r2, A/9/c\r3, A/10/e\r3, A/11/g\r3,
+		B/0/c, B/1/f, B/2/a,    B/3/c\r1, B/4/f\r1, B/5/a\r1, B/6/c\r2, B/7/f\r2, B/8/a\r2, B/9/c\r3, B/10/f\r3, B/11/a\r3, B/12/c\r4,
+		C/0/f, C/1/b, C/2/d\r1, C/3/f\r1, C/4/b\r1, C/5/d\r2, C/6/f\r2, C/7/b\r2, C/8/d\r3, C/9/f\r3, C/10/b\r3, C/11/d\r4,
+		D/4/es\r2} {
+		%D/2/ges\r1, D/3/des\r1,
+		%
+		\def\button{\bletter\bnumber}
+		\node[buttonpush] (b\button) at (c\button) {\ss\strut\pitch};
+		\ifnum\bnumber=6\relax
+			\node[buttonpush] (bb\button) at (c\button) [draw,ultra thick,fill=none] {};
+		\fi
+		\node (lb\button) [right=of c\button] {\tfx\color[darkblue]{\bnumber}};
+	}
+	\node (nA) at (cA-1) {A};
+	\node (nB) at (cB-1) {B};
+	\node (nC) at (cC-1) {C};
+	% \node (glava)  at (cB-2) {(glava)};
+	% \node (koleno) at (cB13) {SKUPAJ (koleno)};
+	% \node (mode) at (cB14) {SKUPAJ};
+\stoptikzpicture}
+\stopbuffer
+% ===========
+% Melody Pull
+% ===========
+\startbuffer[melodyPull]
+\hbox{\starttikzpicture
+	[x=1.3cm,y=1.0cm,
+	 node distance=3.5mm,
+	 buttonpull/.style={circle,draw=red!80,fill=red!3,thick,minimum size=9mm,inner sep=0pt}]
+	\foreach \i in {-2,-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14} {
+		\coordinate (cA\i) at ($( 1,0.5) + (0,\i)$);
+		\coordinate (cB\i) at ($( 0,0.0) + (0,\i)$);
+		\coordinate (cC\i) at ($(-1,0.5) + (0,\i)$);
+		\coordinate (cD\i) at ($(-2,1.0) + (0,\i)$);
+	}
+	\foreach \bletter/\bnumber/\pitch in {
+		A/0/f, A/1/g,     A/2/h,    A/3/d\r1, A/4/f\r1, A/5/a\r1,  A/6/h\r1,  A/7/d\r2, A/8/f\r2, A/9/a\r2,  A/10/h\r2, A/11/d\r3,
+		B/0/e, B/1/b,     B/2/c\r1, B/3/e\r1, B/4/g\r1, B/5/b\r1,  B/6/c\r2,  B/7/e\r2, B/8/g\r2, B/9/b\r2,  B/10/d\r3, B/11/e\r3, B/12/g\r4,
+		C/0/a, C/1/es\r1, C/2/f\r1, C/3/a\r1, C/4/c\r2, C/5/es\r2, C/6/f\r2,  C/7/a\r2, C/8/c\r3, C/9/es\r3, C/10/g\r3, C/11/a\r3,
+		D/4/es\r2} {
+		%D/2/h\r1, D/3/ges\r2, D/5/as\r2,
+		%
+		\def\button{\bletter\bnumber}
+		\node[buttonpull] (b\button) at (c\button) {\ss\strut\pitch};
+		\ifnum\bnumber=6\relax
+			\node[buttonpull] (bb\button) at (c\button) [draw,ultra thick,fill=none] {};
+		\fi
+		\node (lb\button) [right=of c\button] {\tfx\color[darkred]{\bnumber}};
+	}
+	\node (nA) at (cA-1) {A};
+	\node (nB) at (cB-1) {B};
+	\node (nC) at (cC-1) {C};
+	% \node (glava)  at (cB-2) {(glava)};
+	% \node (koleno) at (cB13) {NARAZEN (koleno)};
+\stoptikzpicture}
+\stopbuffer
+
+\setupTABLE[c][each][frame=off,align={middle,lohi}]
+\setupTABLE[c][1,2][width=5.5cm]
+\setupTABLE[c][3][width=0cm]
+\setupTABLE[r][1][style=\bfa]
+\setupTABLE[r][2,4,5,7][style=\it]
+\setupTABLE[r][1][topframe=on]
+\setupTABLE[r][1,4,7][bottomframe=on]
+\setupTABLE[c][1][leftframe=on]
+\setupTABLE[c][2][rightframe=on]
+\bTABLE
+\bTR\bTD SKUPAJ/PUSH \eTD\bTD NARAZEN/PULL \eTD\bTD[nr=7]
+\hbox to 0pt{\kern 10pt
+	\rotate[rotation=90]{\externalfigure[melodija-crop][scale=950]}
+	\hss}
+\eTD\eTR
+\bTR\bTD koleno/knee \eTD\bTD koleno/knee \eTD\eTR
+\bTR\bTD
+\hbox to 5.5cm{\hss\getbuffer[bassesPush]\hss}
+\eTD\bTD
+\hbox to 5.5cm{\hss\getbuffer[bassesPull]\hss}
+\eTD\eTR
+\bTR\bTD glava/head \eTD\bTD glava/head \eTD\eTR
+\bTR\bTD koleno/knee \eTD\bTD koleno/knee \eTD\eTR
+\bTR\bTD
+\getbuffer[melodyPush]
+\eTD\bTD
+\getbuffer[melodyPull]
+\eTD\eTR
+\bTR\bTD glava/head \eTD\bTD glava/head \eTD\eTR
+\eTABLE
+
+\centerline{\externalfigure[basi-crop]}
+
+\stoptext
