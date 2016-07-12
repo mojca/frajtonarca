@@ -125,7 +125,7 @@ M = #(define-scheme-function (parser location aFinger aButton) (markup? markup?)
       E -- no de -- kle ji -- ih pa tr -- ga,
       e -- no de -- kle ji -- ih pa tr -- ga,
       e -- no de -- kle ji -- ih pa tr -- ga,
-      da si pu -- šeljc na -- re --di.
+      da si pu -- šeljc na -- re -- di.
     }
   }
   \context Lyrics = "lyricsV" {
@@ -134,7 +134,7 @@ M = #(define-scheme-function (parser location aFinger aButton) (markup? markup?)
       »Za klo -- buk ti ga bom pri -- pe -- la,
       za klo -- buk ti ga bom pri -- pe -- la,
       za klo -- buk ti ga bom pri -- pe -- la
-      ze -- no zla -- to kno -- felj -- co.«
+      "z e" -- no zla -- to kno -- felj -- co.«
     }
   }
   % http://lilypond.org/doc/v2.18/Documentation/notation/stanzas
