@@ -20,40 +20,40 @@ global = {
 
 melody = {
   \global
-  \partial 8 f8          |
-  c'4 a8. f16            | % Na juriš, na
-  c'4 a8. f16            | % juriš, na
-  <e b c'>2              | % ju
-  <e b c'>4. c8          | % riš! Krik
-  <e g>4 <e g>8. <e g>16 | % borcev vih-
-  <e g>4 <d f>8 e8       | % ra skozi
-  <a, f>2                | % ho-
-  <a, c>4. c8            | % te so-
-  <e g>4 <e g>8. <e g>16 | % vragove
-  <e g>4 <a c'>8 <b d'>8 | % vrste so
-  <f a>2                 | % go-
-  <a, f>4. f8            | % ste. U-
+  \partial 8 f8            |
+  c'4 a8. f16              | % Na juriš, na
+  c'4 a8. f16              | % juriš, na
+  <e b c'>2                | % ju
+  <e b c'>4. c8            | % riš! Krik
+  <e g>4 <e g>8. <e g>16   | % borcev vih-
+  <e g>4 <d f>8 e8         | % ra skozi
+  <a, f>2                  | % ho-
+  <a, c>4 r8 c8            | % te so-
+  <e g>4 <e g>8. <e g>16   | % vragove
+  <e g>4 <a c'>8. <b d'>16 | % vrste so
+  <f a>2                   | % go-
+  <a, f>4 r8 f8            | % ste. U-
   \repeat volta 2 {
-    <b d'>4 <b d'>8 <a c'>8            | % dari na-
-    b8( a) g c                         | % vali u-
-    <a c'>4 <a c'>8 f8                 | % sekaj iz-
-    a8( g) f e                         | % pali! Na
+    <b d'>4 <b d'>8 <a c'>8              | % dari na-
+    b8( a) g c                           | % vali u-
+    <a c'>4 <a c'>8 f8                   | % sekaj iz-
+    a8( g) f e                           | % pali! Na
     \break
-    <b, d>4 <b, d>8. <b, d>16          | % juriš o-
-    <b d'>4 <b d'>8 <a c'>8            | % hej parti-
-    <g b>2~                            | % zan, pred
-    <g b>4 <a c'>4                     | % tabo svo-
-    <c' e'>4 <c' e'>8. <b d'>16        | % bode je
-    <a c'>8.( <b d'>16) <a c'>8 <e b>8 | % dan!
+    <b, d>4 <b, d>8. <b, d>16            | % juriš o-
+    <b d'>4 <b d'>8. <a c'>16            | % hej parti-
+    <g b>2~                              | % zan,
+    <g b>4 <a c'>4                       | % pred
+    <c' e'>4 <c' e'>8. <b d'>16          | %  tabo svo-
+    <a c'>8.( <b d'>16) <a c'>8. <e b>16 | % bode je
   }
   \alternative {
     {
-      <f a>2~   |
-      <f a>4 f4 |
+      <f a>2~      | % dan!
+      <f a>4 r8 f8 |
     }
     {
       <f a>2~   |
-      <f a>4 r4 |
+      <f a>4 r8 s8 |
     }
   }
   \bar "|."
@@ -61,7 +61,6 @@ melody = {
 
 \score {
 \new PianoStaff <<
-%   \new Staff <<
 %     \new Lyrics = "buttonsII" \with {
 %       \override VerticalAxisGroup.staff-affinity = #DOWN
 %     }
@@ -92,7 +91,6 @@ melody = {
 %         \M "2" "B5"
 %       }
 %     }
-%   >>
 
   \new Dynamics \with {
     \override VerticalAxisGroup.nonstaff-nonstaff-spacing.padding = 1
@@ -126,13 +124,69 @@ melody = {
 %       ...
 %     }
 %   >>
+  \new RhythmicStaff {
+%     \basses
+    \partial 8
+    c8 |
+    c4 c8. c16 |
+    c4 c8. c16 |
+    c2 |
+    c4. c8 |
+    c4 c8. c16 |
+    c4 c8 c8 |
+    c4 c4 |
+    c4 c8 c8 |
+    c4 c8. c16 |
+    c4 c8. c16 |
+    c4 c4 |
+    c4 c8 c8 |
+    c4 c8 c8 |
+    c8 c c c |
+    c4 c8 c8 |
+    c8 c c c |
+    c4 c8. c16 |
+    c4 c8. c16 |
+    c4 c4 |
+    c4 c4 |
+    c4 c8. c16 |
+    c8. c16 c8. c16 |
+    c4 c4 |
+    c4 r8 c8 |
+    %
+    c4 c4 |
+    c4 s4 |
+  }
   \new FiguredBass {
     \figuremode {
       \partial 8 <4>8 |
       <2>4 <9>8. <4>16 |
       <2>4 <9>8. <4>16 |
       <4>2 |
+      <4 3>4. <4 3>8 |
+      <4 3>4 <4 3>8. <4 3>16 |
+      <4 3>4 <4 3>8 <4 3>8 |
       <4 3>4 <4 3>4 |
+      <4 3>4 <4 3>8 <4 3>8 |
+      <4 3>4 <4 3>8. <4 3>16 |
+      <4 3>4 <4 3>8. <4 3>16 |
+      <4 3>4 <4 3>4 |
+      <4 3>4 <4 3>8 <4 3>8 |
+      %
+      <6 5>4 <6 5>8 <6 5>8 |
+      <4 3>8 <4 3>8 <4 3>8 <4 3>8 |
+      <6 5>4 <6 5>8 <6 5>8 |
+      <6 5>8 <6 5>8 <6 5>8 <6 5>8 |
+      <6 5>4 <6 5>8. <6 5>16 |
+      <6 5>4 <6 5>8. <6 5>16 |
+      <4 3>4 <4 3>4 |
+      <4 3>4 <4 3>4 |
+      <4 3>4 <4 3>8. <4 3>16 |
+      <4 3>8. <4 3>16 <4 3>8. <4 3>16 |
+      <4 3>4 <4 3>4 |
+      <4 3>4 s8 <4 3>8 |
+      %
+      <4 3>4 <4 3>4 |
+      <4 3>4 s4 |
     }
   }
 >>
@@ -167,20 +221,20 @@ melody = {
     { \bold 2. }
     \column {
       "Na juriš, na juriš, na juriš,"
-      "požgimo vsa gnila drevesa,"
-      "zemljo spremenimo v nebesa,"
-      "vsem sonce naj sije,"
-      "le radost naj klije!"
+      "maščujmo požgane domove,"
+      "maščujmo vse naše grobove!"
+      "Preženi besneče"
+      "in reši trpeče!"
       "Na juriš, o-hej, partizan,"
       "pred tabo svobode je dan!"
     }
     { \bold 3. }
     \column {
       "Na juriš, na juriš, na juriš,"
-      "maščujmo požgane domove,"
-      "maščujmo vse naše grobove!"
-      "Preženi besneče"
-      "in reši trpeče!"
+      "požgimo vsa gnila drevesa,"
+      "zemljo spremenimo v nebesa,"
+      "vsem sonce naj sije,"
+      "le radost naj klije!"
       "Na juriš, o-hej, partizan,"
       "pred tabo svobode je dan!"
     }
