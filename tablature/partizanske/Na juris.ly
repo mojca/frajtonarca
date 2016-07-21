@@ -1,14 +1,13 @@
 \version "2.19.30"
 \language "deutsch"
 
-\include "frajtonarca.ly"
+\include "accordion.ily"
+\include "style.ily"
 
 \header{
   title    = "Na juriš"
   poet     = "Besedilo: Tone Seliškar"
   composer = "Glasba: Karol Pahor"
-  tagline  = "https://github.com/mojca/frajtonarca"
-  % tagline = "zapisala Mojca Miklavec s programom LilyPond (https://github.com/mojca/frajtonarca)"
 }
 
 global = {
@@ -20,47 +19,58 @@ global = {
 
 melody = {
   \global
+  \startPush
   \partial 8 f8            |
   c'4 a8. f16              | % Na juriš, na
   c'4 a8. f16              | % juriš, na
+  \stopPush
   <e b c'>2                | % ju
   <e b c'>4. c8            | % riš! Krik
   <e g>4 <e g>8. <e g>16   | % borcev vih-
   <e g>4 <d f>8 e8         | % ra skozi
+  \startPush
   <a, f>2                  | % ho-
   <a, c>4 r8 c8            | % te so-
+  \stopPush
   <e g>4 <e g>8. <e g>16   | % vragove
   <e g>4 <a c'>8. <b d'>16 | % vrste so
+  \startPush
   <f a>2                   | % go-
   <a, f>4 r8 f8            | % ste. U-
   \repeat volta 2 {
     <b d'>4 <b d'>8 <a c'>8              | % dari na-
+    \stopPush
     b8( a) g c                           | % vali u-
     <a c'>4 <a c'>8 f8                   | % sekaj iz-
     a8( g) f e                           | % pali! Na
-    \break
+    \break \startPush
     <b, d>4 <b, d>8. <b, d>16            | % juriš o-
     <b d'>4 <b d'>8. <a c'>16            | % hej parti-
+    \stopPush
     <g b>2~                              | % zan,
     <g b>4 <a c'>4                       | % pred
-    <c' e'>4 <c' e'>8. <b d'>16          | %  tabo svo-
+    <c' e'>4 <c' e'>8. <b d'>16          | % tabo svo-
     <a c'>8.( <b d'>16) <a c'>8. <e b>16 | % bode je
   }
   \alternative {
     {
+      \startPush
       <f a>2~      | % dan!
-      <f a>4 r8 f8 |
+      <f a>4 r8 f8 | % U-
+%       \stopPush
     }
     {
-      <f a>2~   |
+%       \startPush
+      <f a>2~      | % dan!
       <f a>4 r8 s8 |
+      \stopPush
     }
   }
   \bar "|."
 }
 
 \score {
-\new PianoStaff <<
+  \new PianoStaff <<
 %     \new Lyrics = "buttonsII" \with {
 %       \override VerticalAxisGroup.staff-affinity = #DOWN
 %     }
@@ -69,7 +79,7 @@ melody = {
 %     }
     \new Voice = "melody" \fixed c' {
       \melody
-   }
+    }
     \context Lyrics = "lyricsI" {
       \lyricsto "melody" {
         \set stanza = #"1. "
@@ -79,6 +89,8 @@ melody = {
         U -- da -- ri, na -- va -- li, u -- se -- kaj, iz -- pa -- li!
         Na ju -- riš, o -- hej, par -- ti -- zan,
         pred ta -- bo svo -- bo -- de je dan!
+        U --
+        dan!
       }
     }
 %     \context Lyrics = "buttonsII" {
@@ -92,30 +104,11 @@ melody = {
 %       }
 %     }
 
-  \new Dynamics \with {
-    \override VerticalAxisGroup.nonstaff-nonstaff-spacing.padding = 1
-  } {
-    \startPush
-    s8
-    s2*2
-    \stopPush
-    s2*4
-    \startPush
-    s2*2
-    \stopPush
-    s2*2
-    \startPush
-    s2*3
-    \stopPush
-    s2*3
-    \startPush
-    s2*2
-    \stopPush
-    s2*4
-    \startPush
-    s2*3 s4
-    \stopPush
-  }
+    \new AccordionPushPull \with {
+      \override VerticalAxisGroup.nonstaff-nonstaff-spacing.padding = 1
+    } {
+      \melody
+    }
 
 %   \new Staff = "staff" <<
 %     \new Voice = "bass" {
@@ -190,18 +183,9 @@ melody = {
     }
   }
 >>
-
-\layout {
-%   ragged-last = ##t
-  \context {
-    \Global
-    \grobdescriptions #all-grob-descriptions
+  \layout {
+    % ragged-last = ##t
   }
-  \context {
-    \Dynamics
-    \consists \accordionPushSpannerEngraver
-  }
-}
 }
 \score {
   \unfoldRepeats {
