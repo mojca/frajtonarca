@@ -17,7 +17,7 @@ global = {
 
 % https://www.youtube.com/watch?v=48h3ZYOFUvE
 
-melody = {
+melody = \fixed c' {
   \global
   \startPush
   \partial 8 f8            |
@@ -40,9 +40,9 @@ melody = {
   \repeat volta 2 {
     <b d'>4 <b d'>8 <a c'>8              | % dari na-
     \stopPush
-    b8( a) g c                           | % vali u-
+    b8 a g c                             | % vali u-
     <a c'>4 <a c'>8 f8                   | % sekaj iz-
-    a8( g) f e                           | % pali! Na
+    a8 g f e                             | % pali! Na
     \break \startPush
     <b, d>4 <b, d>8. <b, d>16            | % juriš o-
     <b d'>4 <b d'>8. <a c'>16            | % hej parti-
@@ -57,10 +57,8 @@ melody = {
       \startPush
       <f a>2~      | % dan!
       <f a>4 r8 f8 | % U-
-%       \stopPush
     }
     {
-%       \startPush
       <f a>2~      | % dan!
       <f a>4 r8 s8 |
       \stopPush
@@ -77,7 +75,7 @@ melody = {
 %     \new Lyrics = "buttonsI" \with {
 %       \override VerticalAxisGroup.staff-affinity = #DOWN
 %     }
-    \new Voice = "melody" \fixed c' {
+    \new Voice = "melody" {
       \melody
     }
     \context Lyrics = "lyricsI" {
@@ -86,7 +84,7 @@ melody = {
         Na ju -- riš, na ju -- riš, na ju -- riš!
         Krik bor -- cev vi -- hra sko -- zi ho -- ste,
         so -- vra -- go -- ve vr -- ste so go -- ste.
-        U -- da -- ri, na -- va -- li, u -- se -- kaj, iz -- pa -- li!
+        U -- da -- ri, na -- va -- _ li, u -- se -- kaj, iz -- pa -- _ li!
         Na ju -- riš, o -- hej, par -- ti -- zan,
         pred ta -- bo svo -- bo -- de je dan!
         U --
@@ -190,7 +188,7 @@ melody = {
 \score {
   \unfoldRepeats {
     \new PianoStaff <<
-      \new Voice = "melody" \fixed c' {
+      \new Voice = "melody" {
         \melody
       }
     >>
