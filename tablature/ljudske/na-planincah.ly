@@ -1,27 +1,49 @@
-% \version "2.18.2"
-\version "2.19.45"
+\version "2.19.30"
 \language "deutsch"
+
+\include "accordion.ily"
+\include "style.ily"
 
 \header{
   title   = "Na planincah"
   composer = "slovenska ljudska"
-  tagline = "zapisala Mojca Miklavec s programom LilyPond (https://github.com/mojca/frajtonarca)"
 }
 
-#(set-default-paper-size "a4")
-\paper {
-  top-margin = 2\cm
-}
-\layout {
-  indent = #0
+global = {
+  \key f \major
+  \time 3/4
 }
 
-startPull = { \mark \markup{ \musicglyph #"scripts.upbow" } }
-startPush = { \mark \markup{ \musicglyph #"scripts.downbow" } }
+melody = {
+  % \startPull
+  <a c'>2\( <g b>4\) |
+  \startPush
+  <f a>2\( <f a>4 |
+  <f a>4 <e g>4 <f a>4\) |
+  \stopPush
+  <g b>2\( <e g>4\) |
 
-M = #(define-scheme-function (parser location aFinger aButton) (markup? markup?)
-  #{ \markup{ \small \bold \with-color #(rgb-color 0.5 0 0) #aFinger \small \with-color #(rgb-color 0 0 0.5) #aButton } #}
-)
+  <b d'>2\( <a c'>4 |
+  <g b>2\) <g b>4\( |
+  <g b>4 <f a>4 <g b>4\) |
+  \startPush
+  <a c'>2\( <f a>4\)
+  \stopPush
+  %
+  <a c'>2\( <g b>4\) |
+  \startPush
+  <f a>2\( <f a>4 |
+  <f a>4 <e g>4 <f a>4\) |
+  \stopPush
+  <g b>2\( <e g>4\) |
+  %
+  <b d'>2\( <a c'>4 |
+  <c' e'>2 <b d'>4 |
+  <a c'>2 <g b>4\) |
+  \startPush
+  <f a>2.
+  \stopPush
+}
 
 \score {
 \new PianoStaff
@@ -36,36 +58,8 @@ M = #(define-scheme-function (parser location aFinger aButton) (markup? markup?)
   \new Voice = "melody" \fixed c'
   {
     \set midiInstrument = #"accordion"
-    \key f \major
-    \time 3/4
-
-      \startPull
-      <<a2\( c'>> <<g4\) b>> |
-      \startPush
-      <<f2\( a>> <<f4 a>> |
-      <<f4 a>> <<e4 g>> <<f4\) a>> |
-      \startPull
-      <<g2\( b>> <<e4\) g>> |
-
-      <<b2\( d'>> <<a4 c'>> |
-      <<g2\) b>> <<g4\( b>> |
-      <<g4 b>> <<f4 a>> <<g4\) b>> |
-      \startPush
-      <<a2\( c'>> << f4\) a>>
-
-      \startPull
-      <<a2\( c'>> <<g4\) b>> |
-      \startPush
-      <<f2\( a>> <<f4 a>> |
-      <<f4 a>> <<e4 g>> <<f4\) a>> |
-      \startPull
-      <<g2\( b>> <<e4\) g>> |
-
-      <<b2\( d'>> <<a4 c'>> |
-      <<c'2 e'>> <<b4 d'>> |
-      <<a2 c'>> <<g4\) b>> |
-      \startPush
-      <<f2. a>>
+    \global
+    \melody
   }
   \new Lyrics = "lyricsI"   {}
   \new Lyrics = "lyricsII"  {}
@@ -101,69 +95,75 @@ M = #(define-scheme-function (parser location aFinger aButton) (markup? markup?)
       na pla -- nin' -- cah lušt -- no je.
     }
   }
-  \context Lyrics = "lyricsII" {
-    \lyricsto "melody" {
-      \set stanza = #"2. "
-      Gor po -- je -- jo dro -- - -- bne pti -- čke,
-      gor po -- je -- jo dro -- - -- bne pti -- čke,
-      gor po -- je -- jo dro -- - -- bne pti -- čke,
-      gor po -- je -- jo pti -- či -- ce.
-    }
-  }
-  \context Lyrics = "lyricsIII" {
-    \lyricsto "melody" {
-      \set stanza = #"3. "
-      Gor cve -- te -- jo ro -- ži -- ce be -- le,
-      gor cve -- te -- jo ro -- ži -- ce be -- le,
-      gor cve -- te -- jo ro -- ži -- ce be -- le,
-      gor cve -- te -- jo ro -- ži -- ce.
-    }
-  }
-  \context Lyrics = "lyricsIV" {
-    \lyricsto "melody" {
-      \set stanza = #"4. "
-      E -- no de -- kle ji -- ih pa tr -- ga,
-      e -- no de -- kle ji -- ih pa tr -- ga,
-      e -- no de -- kle ji -- ih pa tr -- ga,
-      da si pu -- šeljc na -- re -- di.
-    }
-  }
-  \context Lyrics = "lyricsV" {
-    \lyricsto "melody" {
-      \set stanza = #"5. "
-      »Za klo -- buk ti ga bom pri -- pe -- la,
-      za klo -- buk ti ga bom pri -- pe -- la,
-      za klo -- buk ti ga bom pri -- pe -- la
-      "z e" -- no zla -- to kno -- felj -- co.«
-    }
-  }
+% \context Lyrics = "lyricsII" {
+%   \lyricsto "melody" {
+%     \set stanza = #"2. "
+%     Gor po -- je -- jo dro -- - -- bne pti -- čke,
+%     gor po -- je -- jo dro -- - -- bne pti -- čke,
+%     gor po -- je -- jo dro -- - -- bne pti -- čke,
+%     gor po -- je -- jo pti -- či -- ce.
+%   }
+% }
+% \context Lyrics = "lyricsIII" {
+%   \lyricsto "melody" {
+%     \set stanza = #"3. "
+%     Gor cve -- te -- jo ro -- ži -- ce be -- le,
+%     gor cve -- te -- jo ro -- ži -- ce be -- le,
+%     gor cve -- te -- jo ro -- ži -- ce be -- le,
+%     gor cve -- te -- jo ro -- ži -- ce.
+%   }
+% }
+% \context Lyrics = "lyricsIV" {
+%   \lyricsto "melody" {
+%     \set stanza = #"4. "
+%     E -- no de -- kle ji -- ih pa tr -- ga,
+%     e -- no de -- kle ji -- ih pa tr -- ga,
+%     e -- no de -- kle ji -- ih pa tr -- ga,
+%     da si pu -- šeljc na -- re -- di.
+%   }
+% }
+% \context Lyrics = "lyricsV" {
+%   \lyricsto "melody" {
+%     \set stanza = #"5. "
+%     »Za klo -- buk ti ga bom pri -- pe -- la,
+%     za klo -- buk ti ga bom pri -- pe -- la,
+%     za klo -- buk ti ga bom pri -- pe -- la
+%     "z e" -- no zla -- to kno -- felj -- co.«
+%   }
+% }
   % http://lilypond.org/doc/v2.18/Documentation/notation/stanzas
+
+  \new AccordionPushPull \with {
+    \override VerticalAxisGroup.nonstaff-nonstaff-spacing.padding = 1
+  } {
+    \melody
+  }
 
   \new Staff \fixed c
   {
     \set midiInstrument = #"accordion"
-    \key f \major
+    \global
     \clef "bass"
     % maybe this could be done in \chordmode
-    c4  <<e g c'>> <<e g c'>> | % V 4 3 3
-    f,4 <<f a c'>> <<f a c'>> | % H 4 3 3
-    c4  <<f a c'>> <<f a c'>> | % H 2 3 3
-    g,4 <<e g c'>> <<e g c'>> | % V 2 3 3
+    c4  <e g c'> <e g c'> | % V 4 3 3
+    f,4 <f a c'> <f a c'> | % H 4 3 3
+    c4  <f a c'> <f a c'> | % H 2 3 3
+    g,4 <e g c'> <e g c'> | % V 2 3 3
     %
-    c4  <<e g c'>> <<e g c'>> | % V 4 3 3
-    g,4 <<e g c'>> <<e g c'>> | % V 2 3 3
-    c4  <<e g c'>> <<e g c'>> | % V 4 3 3
-    f,4 <<f a c'>> <<f a c'>> | % H 4 3 3
+    c4  <e g c'> <e g c'> | % V 4 3 3
+    g,4 <e g c'> <e g c'> | % V 2 3 3
+    c4  <e g c'> <e g c'> | % V 4 3 3
+    f,4 <f a c'> <f a c'> | % H 4 3 3
     %
-    c4  <<e g c'>> <<e g c'>> | % V 4 3 3
-    f,4 <<f a c'>> <<f a c'>> | % H 4 3 3
-    c4  <<f a c'>> <<f a c'>> | % H 2 3 3
-    g,4 <<e g c'>> <<e g c'>> | % V 2 3 3
+    c4  <e g c'> <e g c'> | % V 4 3 3
+    f,4 <f a c'> <f a c'> | % H 4 3 3
+    c4  <f a c'> <f a c'> | % H 2 3 3
+    g,4 <e g c'> <e g c'> | % V 2 3 3
     %
-    c4  <<e g c'>> <<e g c'>> | % V 4 3 3
-    g,4 <<e g c'>> <<e g c'>> | % V 2 3 3
-    c4  <<e g c'>> <<e g c'>> | % V 4 3 3
-    <<f,2. f a c'>>           | % H 43
+    c4  <e g c'> <e g c'> | % V 4 3 3
+    g,4 <e g c'> <e g c'> | % V 2 3 3
+    c4  <e g c'> <e g c'> | % V 4 3 3
+    <f, f a c'>2.         | % H 43
   }
   \new FiguredBass {
     \figuremode {
@@ -192,5 +192,30 @@ M = #(define-scheme-function (parser location aFinger aButton) (markup? markup?)
   \layout{}
   \midi{
     \tempo 4 = 160
+  }
+}
+
+\markup {
+  \fill-line {
+    \hspace #1
+    \column {
+      { \bold 2. }
+      "Gor pojejo drobne ptičke,"
+      "gor pojejo ptičice."
+
+      { \bold 3. }
+      "Gor cvetejo rožice bele,"
+      "gor cvetejo rožice."
+    }
+    \column {
+      { \bold 4. }
+      "Eno dekle jih pa trga,"
+      "da si pušeljc naredi."
+
+      { \bold 5. }
+      "»Za klobuk ti ga bom pripela"
+      "z eno zlato knofeljco.«"
+    }
+    \hspace #1
   }
 }
