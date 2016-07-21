@@ -1,7 +1,8 @@
 \version "2.19.30"
 \language "deutsch"
 
-\include "frajtonarca.ly"
+\include "accordion.ily"
+\include "style.ily"
 
 \header{
   title    = "Hej brigade"
@@ -57,31 +58,40 @@ global = {
 
 melody = {
   \global
+  \startPush
   \partial 4 <f a>8. <f a>16 | % Hej bri-
   <f a>4 <f a>8 g8           | % gade hi-
   f8 c8 <f a>8. <f a>16      | % tite razpo-
-  <f a>4 <f a>8 g8           | % dite
-  f8 c c c                   | % 
-  <e g>4 <e g>8. <e g>16     | % 
-  <e g>4 <a c'>8. <g b>16    | % 
-  <f a>2~                    | % 
-  <f a>4 <b d'>8. <b d'>16   | % mov! Hej ma-
+  <f a>4 <f a>8 g8           | % dite za-
+  f8 c c c                   | % trite poži-
+  \stopPush
+  <e g>4 <e g>8. <e g>16     | % galce slo-
+  <e g>4 <a c'>8. <g b>16    | % venskih do-
+  <f a>2~                    | % mov!
+  <f a>4 \startPush <b d'>8. <b d'>16 | % Hej ma-
   \repeat volta 2 {
-    <b d'>4 <b d'>8. <b d'>16      | % šinca za-
-     <b d'>8 <b d'> <c' e'> <b d'> | % godi naj od-
-     <a c'>4 <a c'>8. <a c'>16     | % meva pov-
-     <c' e'>8 <b d'> <a c'> <g b>  | % sodi naš po-
-     <f a>4 c8. c16 | % zdrav iz svo-
+    <b d'>4 <b d'>8. <b d'>16     | % šinca za-
+    \stopPush
+    <b d'>8 <b d'> <c' e'> <b d'> | % godi naj od-
+    \startPush
+    <a c'>4 <a c'>8. <a c'>16     | % meva pov-
+    \stopPush
+    <c' e'>8 <b d'> <a c'> <g b>  | % sodi naš po-
+    \startPush
+    <f a>4 c8. c16 | % zdrav iz svo-
   }
   \alternative {
     {
-      c4 f8. <f a>16 | % bodnih goz-
-      <e g>2~ | % dov!
-      <e g>4 <b d'>8. <b d'>16 | % Hej ma-
+      c4 f8. <f a>16 | % bodnih go-
+      \stopPush
+      <e g>2~ | % zdov!
+      <e g>4 \startPush <b d'>8. <b d'>16 | % Hej ma-
+      \stopPush
     }{
       g4 g8 a8 | % bodnih goz-
+      \startPush
       <a, f>2~ | % dov!
-      <a, f>4 r4 |
+      <a, f>4 \stopPush r4 |
     }
   }
   
@@ -90,7 +100,6 @@ melody = {
 
 \score {
 \new PianoStaff <<
-%   \new Staff <<
     \new Lyrics = "buttonsII" \with {
       \override VerticalAxisGroup.staff-affinity = #DOWN
     }
@@ -130,7 +139,7 @@ melody = {
         - _ _
         _ _ \M "" "B5"
         \M "" "B4"
-        \M "" "A5" -
+        \M "" "C5" -
         _ _ _
         \M "" "B4"
       }
@@ -154,41 +163,16 @@ melody = {
         - \M "" "B3" -
         - \M "" "B4" \M "" "B4"
         \M "" "B3"
-        \M "" "A4" -
+        \M "" "C4" -
         \M "" "B4" - \M "" "A5"
         \M "" "B2"
       }
     }
-%   >>
 
   \new Dynamics \with {
     \override VerticalAxisGroup.nonstaff-nonstaff-spacing.padding = 1
   } {
-    \startPush
-    s4
-    s2*4
-    \stopPush
-    s2*3 s4
-    \startPush
-    s4 s2
-    \stopPush
-    s2
-    \startPush
-    s2
-    \stopPush
-    s2
-    \startPush
-    s2*2
-    \stopPush
-    s2 s4
-    \startPush
-    s4
-    \stopPush
-    %
-    s2
-    \startPush
-    s2 s4
-    \stopPush
+    \melody
   }
 
 %   \new Staff = "staff" <<
@@ -248,16 +232,9 @@ melody = {
 
 \layout {
   ragged-last = ##t
-  \context {
-    \Global
-    \grobdescriptions #all-grob-descriptions
-  }
-  \context {
-    \Dynamics
-    \consists \accordionPushSpannerEngraver
-  }
 }
 }
+
 \score {
   \unfoldRepeats {
     \new PianoStaff <<
@@ -272,8 +249,6 @@ melody = {
 }
 
 \markup {
-%   \line {
-%     \column {"        "}
   \fill-line {
     \hspace #1
     { \bold 2. }
