@@ -8,8 +8,6 @@
   title    = "Hej brigade"
   poet     = "Besedilo: Matej Bor"
   composer = "Glasba: Franc Šturm (Radoslav Hrovatin)"
-  tagline  = "https://github.com/mojca/frajtonarca"
-  % tagline = "zapisala Mojca Miklavec s programom LilyPond (https://github.com/mojca/frajtonarca)"
 }
 
 global = {
@@ -169,11 +167,11 @@ melody = {
       }
     }
 
-  \new Dynamics \with {
-    \override VerticalAxisGroup.nonstaff-nonstaff-spacing.padding = 1
-  } {
-    \melody
-  }
+    \new AccordionPushPull \with {
+      \override VerticalAxisGroup.nonstaff-nonstaff-spacing.padding = 1
+    } {
+      \melody
+    }
 
 %   \new Staff = "staff" <<
 %     \new Voice = "bass" {
@@ -230,9 +228,9 @@ melody = {
   }
 >>
 
-\layout {
-  ragged-last = ##t
-}
+  \layout {
+    ragged-last = ##t
+  }
 }
 
 \score {
