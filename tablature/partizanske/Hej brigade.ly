@@ -54,7 +54,7 @@ global = {
 % kdor zemljo nam ukrade?
 % Na Slovenskem smo mi gospodar!
 
-melody = {
+melody = \fixed c' {
   \global
   \startPush
   \partial 4 <f a>8. <f a>16 | % Hej bri-
@@ -104,9 +104,9 @@ melody = {
     \new Lyrics = "buttonsI" \with {
       \override VerticalAxisGroup.staff-affinity = #DOWN
     }
-    \new Voice = "melody" \fixed c' {
+    \new Voice = "melody" {
       \melody
-   }
+    }
     \context Lyrics = "lyricsI" {
       \lyricsto "melody" {
         \set stanza = #"1. "
@@ -120,50 +120,50 @@ melody = {
     }
     \context Lyrics = "buttonsII" {
       \lyricsto "melody" {
-        \M "" "B5" -
-        - - _
-        _ _
-        \M "" "B5" -
-        - - _
-        _ _ _ _
-        \M "" "B4" - -
-        - \M "" "C4" \M "" "B5"
-        \M "" "C3"
-        \M "" "C5" -
+        \M "3" "B5" -
+        - - \m
+        \m \m
+        \M "3" "B5" -
+        - - \m
+        \m \m \m \m
+        \M "2" "B4" - -
+        - \M "3" "C4" \M "4" "B5"
+        \M "2" "C3"
+        \M "4" "C5" -
         - - -
-        \M "" "A7" - \M "" "B7" \M "" "A7"
-        \M "" "B6" - -
-        \M "" "B7" \M "" "A7" \M "" "B6" \M "" "B5"
-        - _ _
-        _ _ \M "" "B5"
-        \M "" "B4"
-        \M "" "C5" -
-        _ _ _
-        \M "" "B4"
+        \M "5" "A7" - \M "5" "B7" \M "5" "A7"
+        \M "4" "B6" - -
+        \M "5" "B7" \M "5" "A7" \M "4" "B6" \M "3" "B5"
+        \M "3" "B5" \m \m
+        \m \m \M "3" "B5"
+        \M "2" "B4"
+        \M "4" "C5" -
+        \m \m \m
+        \M "2" "B4"
       }
     }
     \context Lyrics = "buttonsI" {
       \lyricsto "melody" {
-        \M "" "B4" -
-        - - \M "" "A5"
-        \M "" "B4" \M "" "B3"
-        \M "" "B4" -
-        - - \M "" "A5"
-        \M "" "B4" \M "" "B3" - -
-        \M "" "B3" - -
-        - \M "" "C3" \M "" "B4"
-        \M "" "C2"
-        \M "" "C4" -
+        \M "2" "B4" -
+        - - \M "4" "A5"
+        \M "2" "B4" \M "1" "B3"
+        \M "2" "B4" -
+        - - \M "4" "A5"
+        \M "2" "B4" \M "1" "B3" - -
+        \M "1" "B3" - -
+        - \M "2" "C3" \M "3" "B4"
+        \M "1" "C2"
+        \M "3" "C4" -
         - - -
-        \M "" "B5" - \M "" "B6" \M "" "B5"
-        \M "" "B5" - -
-        \M "" "B6" \M "" "B5" \M "" "A5" \M "" "B4"
-        - \M "" "B3" -
-        - \M "" "B4" \M "" "B4"
-        \M "" "B3"
-        \M "" "C4" -
-        \M "" "B4" - \M "" "A5"
-        \M "" "B2"
+        \M "3" "B5" - \M "4" "B6" \M "3" "B5"
+        \M "3" "B5" - -
+        \M "4" "B6" \M "3" "B5" \M "1" "A5" \M "2" "B4"
+        \M "2" "B4" \M "1" "B3" -
+        - \M "2" "B4" \M "2" "B4"
+        \M "1" "B3"
+        \M "3" "C4" -
+        \M "2" "B4" - \M "4" "A5"
+        \M "1" "B2"
       }
     }
 
@@ -237,6 +237,7 @@ melody = {
   \unfoldRepeats {
     \new PianoStaff <<
       \new Voice = "melody" \fixed c' {
+        \set Staff.midiInstrument = "accordion"
         \melody
       }
     >>
