@@ -197,3 +197,5 @@ stopPush =
 M = #(define-scheme-function (parser location aFinger aButton) (markup? markup?)
   #{ \markup{ \small \bold \with-color #(rgb-color 0.5 0 0) #aFinger \small \with-color #(rgb-color 0 0 0.5) #aButton } #}
 )
+
+m = { \skip 1 }
