@@ -192,6 +192,20 @@ stopPush =
   }
 }
 
+% just an example of making something inside the push event (colouring the note heads)
+accordionRedPushEngraver =
+#(lambda (context)
+   (let ((push? #f))
+     (make-engraver
+      (listeners ((accordion-push-span-event engraver event)
+                  (if (= START (ly:event-property event 'span-direction))
+                      (set! push? #t)
+                      (set! push? #f))))
+      (acknowledgers
+       ((note-head-interface engraver grob source-engraver)
+        (if push?
+            (set! (ly:grob-property grob 'color) red)))))))
+
 %-----------------
 
 M = #(define-scheme-function (parser location aFinger aButton) (markup? markup?)
