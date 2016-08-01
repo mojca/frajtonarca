@@ -46,24 +46,24 @@ melody = \fixed c' {
 }
 
 basses = {
-  f,8 <f a c'> c <f a c'>    | % 2
-  f, <f a c'> c <f a c'>     | % 3
-  g, <e g c'> c <e g c'>     | % 4
-  g, <e g c'> c <e g c'>     | % 5
-  g, <e g c'> c <e g c'>     | % 6
-  g, <e g c'> c <e g c'>     | % 7
-  f, <f a c'> c <f a c'>     | % 8
-  f, <f a c'> c <f a c'>     | % 9
-  f, <f a c'> c <f a c'>     | % 10
-  f, <f a c'> c <f a c'>     | % 11
-  g, <e g c'> c <e g c'>     | % 12
-  g, <e g c'> c <e g c'>     | % 13
-  g, <e g c'> c <e g c'>     | % 14
-  g, <e g c'> c <e g c'>     | % 15
-  f, <f a c'> c <f a c'>     | % 16
-  f, <f a c'> c <f a c'>     | % 17
-  g, <e g c'> c <e g c'>     | % 18
-  f, <f a c'> c <f a c'>     | % 19
+  f,8 <f a c'> c <f a c'> | % 2
+  f, <f a c'> c <f a c'>  | % 3
+  g, <e g c'> c <e g c'>  | % 4
+  g, <e g c'> c <e g c'>  | % 5
+  g, <e g c'> c <e g c'>  | % 6
+  g, <e g c'> c <e g c'>  | % 7
+  f, <f a c'> c <f a c'>  | % 8
+  f, <f a c'> c <f a c'>  | % 9
+  f, <f a c'> c <f a c'>  | % 10
+  f, <f a c'> c <f a c'>  | % 11
+  g, <e g c'> c <e g c'>  | % 12
+  g, <e g c'> c <e g c'>  | % 13
+  g, <e g c'> c <e g c'>  | % 14
+  g, <e g c'> c <e g c'>  | % 15
+  f, <f a c'> c <f a c'>  | % 16
+  f, <f a c'> c <f a c'>  | % 17
+  g, <e g c'> c <e g c'>  | % 18
+  f, <f a c'> c <f a c'>  | % 19
   <f, f a c' >
 }
 
@@ -91,46 +91,46 @@ basses = {
 
     \context Lyrics = "buttonsII" {
       \lyricsto "melody" {
-        \M "" "B5" \M "" "C5" -
-        \M "" "B6" \M "" "B5"
-        \M "" "B4" \M "" "C4" -
-        \M "" "B5" \M "" "B4"
-        \M "" "B7" -
-        \M "" "A7" \M "" "B6" \M "" "B5"
-        \M "" "B5" \M "" "C5" -
-        \M "" "B6"
-        \M "" "B5" \M "" "C5" -
-        \M "" "B6" \M "" "B5"
-        \M "" "B4" \M "" "C4" -
-        \M "" "B5" \M "" "B4"
-        \M "" "B7" -
-        \M "" "A7" - \M "" "B6" \M "" "B5"
-        \M "" "B5" - \M "" "C4"
-        \M "" "B6" \M "" "C5" \M "" "B6"
-        \M "" "B5" \M "" "C4"
-        \M "" "B5"
+        \M "3" "B5" \M "3" "C5" -
+        \M "4" "B6" \M "3" "B5"
+        \M "2" "B4" \M "2" "C4" -
+        \M "3" "B5" \M "2" "B4"
+        \M "5" "B7" -
+        \M "5" "A7" \M "4" "B6" \M "3" "B5"
+        - \M "3" "C5" -
+        \M "5" "B6"
+        \M "3" "B5" \M "3" "C5" -
+        \M "4" "B6" \M "3" "B5"
+        \M "2" "B4" \M "2" "C4" -
+        \M "3" "B5" \M "2" "B4"
+        \M "5" "B7" -
+        \M "5" "A7" - \M "4" "B6" \M "3" "B5"
+        - - \M "4" "C4"
+        \M "4" "B6" \M "3" "C5" \M "4" "B6"
+        \M "3" "B5" \M "4" "B6"
+        \M "3" "B5"
       }
     }
     \context Lyrics = "buttonsI" {
       \lyricsto "melody" {
-        \M "" "B4" \M "" "C4" -
-        \M "" "B5" \M "" "B4"
-        \M "" "B3" \M "" "C3" -
-        \M "" "B4" \M "" "B3"
-        \M "" "B6" -
-        \M "" "B5" \M "" "A5" \M "" "B4"
-        \M "" "B4" \M "" "C4" -
-        \M "" "B5"
-        \M "" "B4" \M "" "C4" -
-        \M "" "B5" \M "" "B4"
-        \M "" "B3" \M "" "C3" -
-        \M "" "B4" \M "" "B3"
-        \M "" "B6" -
-        \M "" "B5" - \M "" "A5" \M "" "B4"
-        \M "" "B4" - \M "" "A5"
-        \M "" "B5" \M "" "C4" \M "" "B5"
-        \M "" "B4" \M "" "C3"
-        \M "" "B4"
+        \M "2" "B4" \M "2" "C4" -
+        \M "3" "B5" \M "2" "B4"
+        \M "1" "B3" \M "1" "C3" -
+        \M "2" "B4" \M "1" "B3"
+        \M "4" "B6" -
+        \M "3" "B5" \M "1" "A5" \M "2" "B4"
+        - \M "2" "C4" -
+        \M "3" "B5"
+        \M "2" "B4" \M "2" "C4" -
+        \M "3" "B5" \M "2" "B4"
+        \M "1" "B3" \M "1" "C3" -
+        \M "2" "B4" \M "1" "B3"
+        \M "4" "B6" -
+        \M "3" "B5" - \M "1" "A5" \M "2" "B4"
+        - - \M "2" "A5"
+        \M "3" "B5" \M "2" "C4" \M "3" "B5"
+        \M "2" "B4" \M "1" "A5"
+        \M "2" "B4"
       }
     }
 
@@ -174,9 +174,9 @@ basses = {
     }
   }
 >>
-%   \layout {
-%     ragged-last = ##t
-%   }
+  \layout {
+    ragged-last = ##t
+  }
 }
 
 \score {
