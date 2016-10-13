@@ -213,3 +213,37 @@ M = #(define-scheme-function (parser location aFinger aButton) (markup? markup?)
 )
 
 m = { \skip 1 }
+
+%-----------------
+
+% http://lsr.di.unimi.it/LSR/Snippet?id=202
+
+#(define (format-mark-box-letters-segno mark context)
+  (markup #:line
+    (#:center-column
+      (#:musicglyph "scripts.segno"
+        #:bold #:box (#:markletter (- (ly:context-property context 'rehearsalMark) 2))
+        ))))
+
+stdMarkFormat = {
+  \set Score.markFormatter = #format-mark-box-letters
+}
+markDefault = {
+  \stdMarkFormat % this resets a possible previous segno/coda-mark
+  \mark \default
+}
+markDefaultSegno = {
+  \set Score.markFormatter = #format-mark-box-letters-segno
+  \once \override Score.RehearsalMark.baseline-skip = #5
+  \mark \default
+}
+
+% partA = \mark \markup {
+%   \override #'(box-padding . 0.5)
+%   \box \line { \huge \bold A }
+% }
+% partB = \mark \markup {
+%   \override #'(box-padding . 0.5)
+%   \box \line { \huge \bold B }
+% }
+% \mark \markup { \musicglyph #"scripts.segno" }
