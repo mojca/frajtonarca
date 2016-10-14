@@ -7,12 +7,12 @@
 \header{
   title    = "Glas harmonike"
   poet     = ""
-  composer = "Lojze slak"
+  composer = "Lojze Slak"
+  arranger = "priredba: Zoran Lupinc"
 }
 
 global = {
   \time 3/4
-%   \set Score.voltaSpannerDuration = #(ly:make-moment 3 4)
   %\tempo 4 = 120 
 }
 
@@ -70,7 +70,7 @@ melody = \fixed c' {
     }
     {
       e2 g4 |
-      g2 <a f>4 |
+      g2 <a f'>4 |
       <g e'>2 <f d'>4 |
       \startPush
       <e c'>2.~ |
@@ -99,7 +99,8 @@ melody = \fixed c' {
     <g b>2. |
   } \alternative {
     {
-      \set Score.repeatCommands = #'((volta "1, 3") end-repeat)
+      %\set Score.repeatCommands = #'((volta "1, 3") end-repeat)
+      \set Score.repeatCommands = #'((volta "1, 3"))
       c2 <a c'>4 |
       <g b>4 c8 d e b |
       \startPush
@@ -163,12 +164,74 @@ melody = \fixed c' {
 
 basses = {}
 
-buttonsII-U = \lyricmode {
+buttonsII-Ua = \lyricmode {
+  \m \m \m
+}
+buttonsI-Ua = \lyricmode {
+  \M "1" "B2" \M "2" "B3" \M "3" "B4"
+}
+
+buttonsII-Ba = \lyricmode {
+  \M "5" "B7" \M "5" "A7" \M "4" "B6" \M "3" "B5" \M "5" "B7" \M "5" "A7"
+  \M "3" "C5"
+  \M "2" "C4" \M "3" "B5"
+  -           \M "3" "C5" \M "4" "B6" \m          \M "3" "B5" - - \M "4" "A5" \M "2" "C3"
+  \M "2" "B3" \M "3" "C4" \M "3" "B5"
+}
+buttonsI-Ba = \lyricmode {
+  \M "4" "B6" \M "3" "B5" \M "1" "A5" \M "2" "B4" \M "4" "B6" \M "3" "B5"
+  \M "2" "C4"
+  \M "1" "C3" \M "2" "B4"
+  -           \M "2" "C4" \M "3" "B5" \M "1" "B3" \M "2" "B4" - - \M "3" "A4" \M "1" "C2"
+  \M "1" "B2" \M "2" "C3" \M "2" "B4"
+}
+
+buttonsII-Ub = \lyricmode {
+  - \M "4" "B6" \M "5" "C7" \M "4" "B6" \M "3" "B5" - \M "4" "B6"
+}
+buttonsI-Ub = \lyricmode {
+  - \M "1" "A5" \M "3" "B5" \M "1" "A5" \M "2" "B4" - \M "3" "B5"
+}
+
+buttonsII-Aa = \lyricmode {
+  -           \M "3" "C5" \M "4" "B6" \M "2" "C4"
+  \M "3" "B5" \M "2" "C4" \M "3" "B5" \m          \M "3" "B5" -           \M "2" "C4" \M "3" "B5"
+  -  \m \m \m \m \m \m
+  \m \m \m \m \m \m \m \M "4" "B5"
+  \M "3" "B4" \M "3" "B5" \M "4" "B6"
+  %
+  \m \m \m \M "5" "A8" \M "4" "B7" \M "5" "A7" \M "4" "B6"
+}
+buttonsI-Aa = \lyricmode {
+  -           \M "2" "C4" \M "3" "B5" \M "4" "A5"
+  \M "2" "B4" \M "1" "C3" \M "2" "B4" \M "1" "B2" \M "2" "B4" -           \M "1" "C3" \M "2" "B4"
+  -           \M "1" "B3" \M "2" "C2" \M "3" "B3" \M "1" "B2" \M "2" "B3" \M "3" "B4"
+  \M "2" "C2" \M "3" "B3" -           \M "1" "B2" -           \M "2" "B3" \M "3" "B4" \M "1" "A3"
+  \M "2" "B2" \M "1" "B3" \M "3" "B5"
+  %
+  \M "1" "B3" \M "2" "B4" - \M "1" "A5" \M "2" "B4" \M "1" "A4" \M "1" "A4"
+}
+buttonsII-Bb = \lyricmode {
+  \m          \M "3" "C4" \M "4" "B5" \m \m \m \m
+  \M "3" "B5" \M "3" "C5" \M "4" "B6"
+}
+buttonsI-Bb = \lyricmode {
+  \M "1" "B2" \M "2" "C3" \M "3" "B4" \M "1" "B2" \M "3" "A3" \M "2" "B3" \M "3" "B5"
+  \M "2" "B4" \M "2" "C4" \M "3" "B5"
+}
+buttonsII-Bc = \lyricmode {
+  \M "3" "B5" \M "3" "C6" \M "5" "A7" \M "3" "B6" \M "3" "B5" -
+}
+buttonsI-Bc = \lyricmode {
+  \M "2" "B4" \M "1" "A5" \M "2" "B5" \M "1" "A5" \M "2" "B4" -
+}
+buttonsII-Bd = \lyricmode {
   \M "4" "B6"
 }
-buttonsI-U = \lyricmode {
-  \M "1" "B2"
+buttonsI-Bd = \lyricmode {
+  \M "3" "B5"
 }
+
 % \M "" "C"
 
 \score {
@@ -243,12 +306,16 @@ buttonsI-U = \lyricmode {
 
     \context Lyrics = "buttonsII" {
       \lyricsto "melody" {
-        \buttonsII-U
+        \buttonsII-Ua \buttonsII-Ba \buttonsII-Ub
+        \buttonsII-Aa
+        \buttonsII-Ba \buttonsII-Bb \buttonsII-Bc \buttonsII-Bd \buttonsII-Bc
       }
     }
     \context Lyrics = "buttonsI" {
       \lyricsto "melody" {
-        \buttonsI-U
+        \buttonsI-Ua  \buttonsI-Ba  \buttonsI-Ub
+        \buttonsI-Aa
+        \buttonsI-Ba  \buttonsI-Bb  \buttonsI-Bc  \buttonsI-Bd  \buttonsI-Bc
       }
     }
 
@@ -321,7 +388,7 @@ buttonsI-U = \lyricmode {
 >>
   \layout {
 %     ragged-last = ##t
-    #(layout-set-staff-size 16)
+%     #(layout-set-staff-size 16)
   }
 }
 
