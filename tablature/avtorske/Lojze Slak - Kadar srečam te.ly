@@ -59,8 +59,16 @@ melody = \fixed c' {
     <es' g'>4. <d' f'>8 <c' es'>4 |
     <d' f'>2 <c' es'>4 |
     \startPush
-    <b d'>2.~ |
-    <b d'>2. |
+    <<
+      {
+        <b d'>2.~ |
+        <b d'>2. |
+      }
+      {
+        s2. |
+        s2 \parenthesize f4 |
+      }
+    >>
     f2 b4 |
     g2 d4 |
     <<
@@ -121,7 +129,7 @@ melody = \fixed c' {
       <b d'>2.~ |
       <b d'>2
 %       \once \override Score.RehearsalMark.direction = #DOWN
-      \mark \markup { { \lower #1 "Fine" } }
+      \mark \markup { { \smaller "Fine" } }
       r4 |
     }
     {
@@ -165,7 +173,7 @@ melody = \fixed c' {
       <f a>4 r r |
       \bar "S"
       \once \override Score.RehearsalMark.direction = #DOWN
-      \mark \markup { { \lower #1 "D.S. al Fine" } } 
+      \mark \markup { { \smaller "D.S. al Fine" } } 
     }
   }
   <b d'>8 r4 <b d'>8 <b d'>4 |
@@ -286,7 +294,7 @@ buttonsII = \lyricmode {
     \buttonsII-Ab
     \buttonsII-Ac
     \buttonsII-Ad
-    \buttonsII-Aa \m
+    \m \buttonsII-Aa \m
     \buttonsII-Ab
     \buttonsII-Aea \buttonsII-Ae - \buttonsII-Ae \M "3" "C5"
     \buttonsII-Ba \buttonsII-Bb \buttonsII-Ba \buttonsII-Bc
@@ -297,7 +305,7 @@ buttonsI = \lyricmode {
     \buttonsI-Ab
     \buttonsI-Ac
     \buttonsI-Ad
-    \buttonsI-Aa -
+    \M "1" "C3" \buttonsI-Aa -
     \buttonsI-Ab
     \buttonsI-Aea \buttonsI-Ae - \buttonsI-Ae \M "2" "C4"
     \buttonsI-Ba \buttonsI-Bb \buttonsI-Ba \buttonsI-Bc
@@ -323,9 +331,9 @@ buttonsI = \lyricmode {
         v tvo -- jih je o -- čeh
         zme -- raj ve -- sel na -- smeh.
 
-        Vem, da sre -- čna si,
-        _ da -- ješ vse ne _ -- žno -- sti,
-        _ dru -- ge -- mu fan -- tu vse dni, no -- či.
+        \m Vem, da sre -- čna si,
+        \m da -- ješ vse ne _ -- žno -- sti,
+        \m dru -- ge -- mu fan -- tu vse dni, no -- či.
       }
     }
     \context Lyrics = "lyricsII" {
@@ -334,10 +342,10 @@ buttonsI = \lyricmode {
         \set stanza = #"2. "
         Tu -- di jaz v_no -- čeh
         sre -- čen sem v_dru -- gih dla -- neh,
-        _ i -- sta sre -- ča ni,
+        \m i -- sta sre -- ča ni,
         kar si mi da -- la ti.
 
-        Mi -- mo te -- be grem,
+        \m Mi -- mo te -- be grem,
         mol -- čim, a za -- kaj _ ne vem,
         za -- kaj vseh že -- lja ti _ ne po -- vem.
         Za -- kaj vseh že -- lja ti _ ne po -- vem.
@@ -353,7 +361,7 @@ buttonsI = \lyricmode {
         v tvo -- jih je o -- čeh
         zme -- raj ve -- sel na -- smeh.
 
-        A_čas be -- ži, be -- ži,
+        A čas be -- ži, be -- ži,
         naj dru _ -- gim po _ -- da -- ri,
         _ kar sva i -- me -- la ne -- koč jaz_in ti.
         _ Kar sva i -- me -- la ne -- koč jaz_in ti.
@@ -386,21 +394,41 @@ buttonsI = \lyricmode {
 %   >>
   \new RhythmicStaff {
     \partial 4. r4. |
-    c2. | c2 c4 |
-    \repeat unfold 5 { c4 c c | }
-    c2 r4 |
+    c2.-4( | c2-2 c4-3) |
+    \repeat unfold 4 { c4 c c | }
+    c4-4( c-3 c-2 |
+    c2) r4 |
     % A
-    \repeat unfold 32 { c4 c c | }
-    c2. | c2 c4 |
-    \repeat unfold 5 { c4 c c | }
-    c2 r4 | c4 c c | c4 r r |
-    % B
-    \repeat unfold 7 { c4 c c | }
-    c4 r r |
-    \repeat unfold 7 { c4 c c | }
-    c4 r r |
     \repeat unfold 3 { c4 c c | }
-    c4 r r |
+    c4-4( c-2 c-3) |
+    \repeat unfold 15 { c4 c c | }
+    c4-4( c-2 c-3) |
+    c4 c c |
+    c4-4( c-2 c-4) |
+    \repeat unfold 9 { c4 c c | }
+    c4-4( c-2 c-4 |
+    c2.-4 | c2-2 c4-3) |
+    \repeat unfold 4 { c4 c c | }
+    c4-4( c-3 c-2 |
+    c2-4) r4 | c4-4( c-3 c-2 | c4-4) r r |
+    % B
+    c4 c c |
+    c4-4( c-3 c-2) |
+    \repeat unfold 4 { c4 c c | }
+    c4-4( c-3 c-2 |
+    c4-4) r r |
+    c4 c c |
+    c4-4( c-3 c-2) |
+    \repeat unfold 3 { c4 c c | }
+    c4-4( c-3 c-2 |
+    c4-4 c-3 c-2 |
+    c4-4) r r |
+    %
+    c4-4( c-3 c-2 |
+    c4-4 c-2 c-3) |
+    %
+    c4-4( c-3 c-2 |
+    c4-4) r r |
   }
   \new FiguredBass {
     \figuremode {
