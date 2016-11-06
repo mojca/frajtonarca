@@ -42,7 +42,9 @@ melody = \fixed c' {
   <f a>2.~ |
   <f a>2 <a c'>4 |
   % A
-  \markDefaultSegno
+  % \markDefaultSegno
+  \bar "S"
+  \markDefault
   \repeat volta 2 {
     <a c'>2 <b d'>4 |
     <a c'>2 <g b>4 |
@@ -52,7 +54,14 @@ melody = \fixed c' {
     <g b>2 <g b>4 |
     <a c'>2 <g b>4 |
     \startPush
-    <f a>2.
+    <<
+      {
+        <f a>2.
+      }
+      {
+        s2 \parenthesize d4
+      }
+    >>
     c2 d4 |
     c2 a,4 |
     c2 f4 |
@@ -168,7 +177,7 @@ buttonsII-Ua = \lyricmode {
   \m \m \m
 }
 buttonsI-Ua = \lyricmode {
-  \M "1" "B2" \M "2" "B3" \M "3" "B4"
+  \M "2" "B2" \M "1" "B3" \M "2" "B4"
 }
 
 buttonsII-Ba = \lyricmode {
@@ -195,8 +204,8 @@ buttonsI-Ub = \lyricmode {
 
 buttonsII-Aa = \lyricmode {
   -           \M "3" "C5" \M "4" "B6" \M "2" "C4"
-  \M "3" "B5" \M "2" "C4" \M "3" "B5" \m          \M "3" "B5" -           \M "2" "C4" \M "3" "B5"
-  -  \m \m \m \m \m \m
+  \M "3" "B5" \M "2" "C4" \M "3" "B5" \m          \M "3" "B5" -           \M "4" "B6" \M "3" "B5"
+  -  \m \m \m \m \m \m \m
   \m \m \m \m \m \m \m \M "4" "B5"
   \M "3" "B4" \M "3" "B5" \M "4" "B6"
   %
@@ -204,8 +213,8 @@ buttonsII-Aa = \lyricmode {
 }
 buttonsI-Aa = \lyricmode {
   -           \M "2" "C4" \M "3" "B5" \M "4" "A5"
-  \M "2" "B4" \M "1" "C3" \M "2" "B4" \M "1" "B2" \M "2" "B4" -           \M "1" "C3" \M "2" "B4"
-  -           \M "1" "B3" \M "2" "C2" \M "3" "B3" \M "1" "B2" \M "2" "B3" \M "3" "B4"
+  \M "2" "B4" \M "1" "C3" \M "2" "B4" \M "1" "B2" \M "2" "B4" -           \M "1" "A5" \M "2" "B4"
+  -           \M "1" "C2" \M "(2)1" "B3" \M "2" "C2" \M "3" "B3" \M "1" "B2" \M "2" "B3" \M "3" "B4"
   \M "2" "C2" \M "3" "B3" -           \M "1" "B2" -           \M "2" "B3" \M "3" "B4" \M "1" "A3"
   \M "2" "B2" \M "1" "B3" \M "3" "B5"
   %
@@ -216,11 +225,11 @@ buttonsII-Bb = \lyricmode {
   \M "3" "B5" \M "3" "C5" \M "4" "B6"
 }
 buttonsI-Bb = \lyricmode {
-  \M "1" "B2" \M "2" "C3" \M "3" "B4" \M "1" "B2" \M "3" "A3" \M "2" "B3" \M "3" "B5"
+  \M "1" "B2" \M "2" "C3" \M "3" "B4" \M "1" "B2" \M "3" "A3" \M "2" "B3" \M "4" "B5"
   \M "2" "B4" \M "2" "C4" \M "3" "B5"
 }
 buttonsII-Bc = \lyricmode {
-  \M "3" "B5" \M "3" "C6" \M "5" "A7" \M "3" "B6" \M "3" "B5" -
+  \M "3" "B5" \M "4" "B6" \M "5" "A7" \M "4" "B6" \M "3" "B5" -
 }
 buttonsI-Bc = \lyricmode {
   \M "2" "B4" \M "1" "A5" \M "2" "B5" \M "1" "A5" \M "2" "B4" -
@@ -252,7 +261,7 @@ buttonsI-Bd = \lyricmode {
         _ _ _ _ _ _ _ _ _ _
         \set stanza = #"1. "
         No -- coj je glas har -- mo -- ni -- ke
-        spo -- mi -- ne spet pre -- dra -- mil,
+        spo -- mi -- ne spet pre -- dra _ -- mil,
         ne -- koč ta glas, me -- hak in blag,
         sr -- ce mi je o -- ma -- mil.
         Le
@@ -261,7 +270,7 @@ buttonsI-Bd = \lyricmode {
         la, la, la, la, la, la.
         \repeat unfold 25 { \skip 1 }
         %
-        Ko --
+        No --
         %
         La, la, la, la, la, la.
       }
@@ -273,7 +282,7 @@ buttonsI-Bd = \lyricmode {
         _ _ _ _ _ _ _ _ _ _
         \set stanza = #"2. "
         (Le) da te -- daj je ta na -- pev
-        bil mno -- go, mno -- go bolj vesel
+        bil mno -- go, mno -- go bolj ve -- sel
         in fant, ki je ta -- krat i- _ _ _ _ _ _ _ _ _ -- gral,
         si me -- ne je i -- zbral.
       }
@@ -285,7 +294,7 @@ buttonsI-Bd = \lyricmode {
         _ _ _ _ _ _ _ _ _ _
         \set stanza = #"3. "
         (No) -- coj spet gle -- dam na go -- re,
-        str -- mi -- ne vse mol -- či -- jo,
+        str -- mi -- ne vse mol -- či _ -- jo,
         za -- kaj, za -- kaj so vze -- le ga
         mi ne o -- dgo -- vo -- ri -- jo.
         Ko
@@ -298,7 +307,7 @@ buttonsI-Bd = \lyricmode {
         _ _ _ _ _ _ _ _ _ _
         \set stanza = #"4. "
         (Ko) za -- i -- gra har -- mo -- ni -- ka,
-        pa ve -- dno me spo -- mi -- nja
+        pa ve -- dno me spo -- mi _ -- nja
         in kar ne mo -- re več sr- _ _ _ _ _ _ _ _ _ -- ce
         to o -- na mi po -- ve.
       }
@@ -334,14 +343,27 @@ buttonsI-Bd = \lyricmode {
 %   >>
   \new RhythmicStaff {
     \partial 4. r4. |
-    \repeat unfold 15 { c4 c c | }
+    \repeat unfold 5 { c4 c c | }
+    c4-4( c-3 c-2) |
+    \repeat unfold 7 { c4 c c | }
+    c4-4( c-3 c-2 |
+    c4-4  c-3 c-2 |
+    c2-4) r4 |
+    \repeat unfold 13 { c4 c c | }
+    c4-4( c-3 c-2) |
+    \repeat unfold 3 { c4 c c | }
+    c4-3 c-2 c-2 |
+    c4-4 c-2 c-2 |
+    c4-3 c-2 c-2 |
     c2 r4 |
-    \repeat unfold 20 { c4 c c | }
-    c2 r4 |
-    \repeat unfold 16 { c4 c c | }
+    \repeat unfold 5 { c4 c c | }
+    c4-4( c-3 c-2) |
+    \repeat unfold 10 { c4 c c | }
     \repeat unfold 2 {
-      \repeat unfold 3 { c4 c c | }
-      c2 r4 |
+      c4 c c |
+      c4-4( c-3 c-2 |
+      c4-4  c-3 c-2 |
+      c2) r4 |
     }
   }
   \new FiguredBass {
@@ -360,7 +382,7 @@ buttonsI-Bd = \lyricmode {
       <2>4 <3> <3> | <4> <3> <3> | % V
       <2>4 <3> <3> | <4> <9> <7> | % V
       <4>4 <3> <3> | <2> <3> <3> | % H
-      <4>4 <3> <3> | <9> <1> <1> | <2> <1> <1> | % V
+      <4>4 <3> <3> | <2> <1> <1> | <9> <1> <1> | % V
       <2>4 <1> <1> | <2>2 r4 | % H
       \repeat unfold 2 { <2>4 <3> <3> | <4> <3> <3> | } % V
       <6>4 <5> <5> | % H
