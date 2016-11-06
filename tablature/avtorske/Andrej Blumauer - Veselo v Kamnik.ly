@@ -6,7 +6,7 @@
 
 \header{
   title    = "Veselo v Kamnik"
-  poet     = ""
+  poet     = "U-A1-A2-B-B-A-A2-B-B"
   composer = "Andrej Blumauer"
 }
 
@@ -30,6 +30,9 @@ melody = \fixed c' {
   \startPush
   <f a>2~ |
   <f a>4 r8 c8 | % Ve-
+  % A
+  \bar "S"
+  \markDefault
   \repeat volta 2 {
     <f a>4 c8 <f a>8 | % selo v
     <a c'>4 <f a>8 c8 | % Kamnik in
@@ -45,7 +48,7 @@ melody = \fixed c' {
     <a c'>4 <f a>8 c8 |
     <f a>4 <g b>8 <f a>8 |
     \stopPush
-    <e b>4. c8 |
+    <e b>4. \parenthesize c8 |
     c4 e8 g8 |
     <c' e'>4 <g b>8 <a c'>8 |
     \startPush
@@ -54,14 +57,18 @@ melody = \fixed c' {
     <a c'>8 <g b>8 |
   } \alternative {
     {
+      \set Score.repeatCommands = #'((volta "1, 3"))
       \startPush
       <f a>4 r8 c8 |
     }
     {
+      \set Score.repeatCommands = #'((volta "2, 4") end-repeat)
       <f a>4 <f f'>4
     }
   }
 %   \bar "||"
+  % B
+  \markDefault
   \key b \major
   \repeat volta 3 {
     <d' f'>2 |
@@ -81,14 +88,19 @@ melody = \fixed c' {
     <es' g'>4 <a es'>4 |
   } \alternative {
     {
+      \set Score.repeatCommands = #'((volta "1, 3"))
       \startPush
       <b d'>2~ |
       <b d'>4 <f f'>4 |
     }{
+      \set Score.repeatCommands = #'((volta "2") end-repeat)
       <b d'>2~ |
       <b d'>4 % then repeat A + B
       r8 c8 |
+      \once \override Score.RehearsalMark.direction = #DOWN
+      \mark \markup { { \smaller "D.S." } } 
     }{
+      \set Score.repeatCommands = #'((volta "4") end-repeat)
       <b d'>2~ |
       <b d'>8 r8 <b d'>4
       \stopPush
@@ -136,21 +148,21 @@ buttonsI-Ac = \lyricmode {
   \M "2" "B4" %\M "1" "C3"
 }
 buttonsII-B = \lyricmode {
-  \M "3" "C6" \M "3" "C6" \M "2" "C5"
+  \M "4" "C6" \M "3" "C6" \M "2" "C5"
   \M "5" "B9" \M "4" "C7" \M "2" "C5" "" "" "" "" \M "4" "C7" \M "5" "B8"
   \M "3" "C6" \M "2" "C5" \M "3" "C6" \M "2" "C5"
   \M "5" "B9" \M "4" "C7" -           \M "2" "C5"    ""       \M "4" "B7" - - - \M "5" "B8" \M "2" "C5"
-  \M "3" "C5" \M "3" "C6"
+  \M "3" "C5" \M "4" "C6"
   \M "3" "C5"    ""
   \M "3" "C5" -
 }
 buttonsI-B = \lyricmode {
   \M "1" "C3" \M "2" "C5" \M "1" "C4"
-  \M "4" "B8" \M "3" "C6" \M "1" "C3" \M "1" "C2" \M "3" "B4" \M "2" "C3" \M "4" "B6" \M "3" "C6" \M "2" "C5"
+  \M "4" "B8" \M "3" "C6" \M "1" "C3" \M "1" "C2" \M "3" "B4" \M "1" "C3" \M "2" "C4" \M "3" "C6" \M "2" "C5"
   \M "2" "C5" \M "1" "C4" \M "2" "C5" \M "1" "C4"
   \M "4" "B8" \M "3" "C6" -           \M "1" "C3" \M "1" "C2" \M "3" "C6" - - - \M "2" "C5" \M "1" "C3"
   \M "2" "C4" \M "1" "C3"
-  \M "2" "C4"    ""
+  \M "2" "C4" \M "1" "B3"
   \M "2" "C4" -
 }
 % \M "" "C"
@@ -171,7 +183,7 @@ buttonsI-B = \lyricmode {
         \set stanza = #"1. "
         _ _ _ _ _ _ _ _ _ _ _
         Ve -- se -- lo v Kam -- nik in ur -- no na -- prej,
-        v_ve -- li -- ke pla -- ni -- ne od -- ha -- jam, ju -- hej!
+        v_pre -- le -- pe pla -- ni -- ne od -- ha -- jam, ju -- hej!
         Za -- u -- kam ve -- se -- lo, po -- za -- bim skr -- bi,
         _ ve -- dno sr -- ce tja na -- zaj si že -- li.
         Po–
@@ -185,8 +197,8 @@ buttonsI-B = \lyricmode {
       \lyricsto "melody" {
         \set stanza = #"2. "
         _ _ _ _ _ _ _ _ _ _ _
-        _ -- zi -- mi na smu -- či, po -- le -- ti ce -- pin,
-        ve -- se -- la je dru -- žba na vr -- hu pla -- nin,
+        _ -- zi -- mi mi smu -- či, po -- le -- ti ce -- pin,
+        ve -- se -- la so dru -- žba \m vr -- hu pla -- nin,
         v_do -- li -- ni pa Bi -- stri -- ca zve -- sto šu -- mi,
         kot sol -- za kri -- sta -- lna si, Bi -- stri -- ca _ _ ti.
       }
@@ -267,7 +279,7 @@ buttonsI-B = \lyricmode {
       <4>8 <5> <11>4 | % V
       \repeat unfold 3 { <6>8 <5> <4> <5> | } % H
       <5 6>4   % H
-      <3 4>4 | % V
+      <10 11>4 | % V
       \repeat unfold 4 { <4>8 <5> <6> <5> | } % V
       \repeat unfold 1 { <6>8 <5> <4> <5> | } % H
       <6>4 <4> | % H
