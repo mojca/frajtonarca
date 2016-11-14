@@ -258,7 +258,7 @@ buttonsII-Ac = \lyricmode {
 }
 buttonsI-Ac = \lyricmode {
   \M "3" "B5" % je
-  \M "1" "A5" % dol-
+  \M "1" "C3" % dol-
   \M "2" "B4" % ge
   \M "2" "B4" % dni
 }
@@ -308,7 +308,7 @@ buttonsI-Bb = \lyricmode {
   \M "3" "A4" % se
   \M "2" "B4" % ne-
   \M "1" "A5" % žno
-  \M "2" "B5" % pri-
+  \M "3" "B5" % pri-
   \M "3" "B5" % vij
 }
 
@@ -380,7 +380,7 @@ buttonsI = \lyricmode {
         kaj ču -- ti -- lo je dol -- ge dni.
         \m \m \m \m
         Za -- ple -- "ši" "z me" -- noj ta val -- ček
-        in "k me" -- ni se než -- no pri -- vij.
+        in "k me" -- ni se ne -- žno pri -- vij.
         Le na -- jin naj bo tre -- nu -- tek,
         ko "v sre" -- či sr -- ce go -- ri.
       }
