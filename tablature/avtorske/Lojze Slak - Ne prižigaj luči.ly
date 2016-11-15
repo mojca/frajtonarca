@@ -134,195 +134,195 @@ melody = \fixed c' {
 basses = {}
 
 buttonsIIx = \lyricmode {
-  % \M "5" "A7"
-  % \M "3" "C4"
-  % \M "3" "B5"
-  % \M "5" "A7"
-  % \M "3" "C4"
-  % \M "3" "B5"
-  % \M "3" "B5"
+  % \M "5" "C7"
+  % \M "3" "B4"
+  % \M "3" "F5"
+  % \M "5" "C7"
+  % \M "3" "B4"
+  % \M "3" "F5"
+  % \M "3" "F5"
   \m \m \m \m \m % ne prižigaj lu-
-  \M " " "C4" -
-  \M "4" "B5"
-  \M "2" "C4"
-  \M "3" "B5"
+  \M " " "B4" -
+  \M "4" "F5"
+  \M "2" "B4"
+  \M "3" "F5"
   \m
-  \M "3" "B5"
-  \M "4" "B6" % sta-
-  \M "3" "C5" % ri
-  \M " " "C4"
-  \M "3" "B5"
+  \M "3" "F5"
+  \M "4" "F6" % sta-
+  \M "3" "B5" % ri
+  \M " " "B4"
+  \M "3" "F5"
 
-  \M "4" "A5"
-  \M "3" "B5"
-  \M "5" "A7"
-  \M " " "B6"
+  \M "4" "C5"
+  \M "3" "F5"
+  \M "5" "C7"
+  \M " " "F6"
 
   \m \m \m \m \m % nič besed treba
-  \M " " "C4" -
-  \M " " "B5"
-  \M "2" "C4"
-  \M "3" "B5"
+  \M " " "B4" -
+  \M " " "F5"
+  \M "2" "B4"
+  \M "3" "F5"
   \m
+  \M "3" "F5"
+  \M "4" "F6" % kaj
   \M "3" "B5"
-  \M "4" "B6" % kaj
-  \M "3" "C5"
-  \M " " "C4"
-  \M "3" "B5"
+  \M " " "B4"
+  \M "3" "F5"
 
-  \M "5" "A7"
-  \M "2" "C4"
-  \M "3" "B5"
-  \M "3" "B5"
+  \M "5" "C7"
+  \M "2" "B4"
+  \M "3" "F5"
+  \M "3" "F5"
 
   \m \m \m \m % TODO
-  \M "4" "C6" % za[pleši]
-  \M "3" "C5" _
-  \M "4" "B7" _
-  \M "5" "A7" _
-  \M "3" "B6"
-  \M "4" "C7"
-  \M "4" "B8"
-  \M "3" "C5" % in
-  \M "4" "B6"
+  \M "4" "B6" % za[pleši]
+  \M "3" "B5" _
+  \M "4" "F7" _
+  \M "5" "C7" _
+  \M "3" "F6"
+  \M "4" "B7"
+  \M "4" "F8"
+  \M "3" "B5" % in
+  \M "4" "F6"
+  \M "3" "F5"
+  \M "4" "C5"
+  \M "3" "F5"
+  \M "2" "B4"
+  \M "5" "C7"
+  \M "4" "F6"
+  \M "4" "B6" % le najin ...
+  \M "3" "B5" _
+  \M "4" "F7" _
+  \M "5" "C7" _
+  \M "4" "F6"
   \M "3" "B5"
-  \M "4" "A5"
-  \M "3" "B5"
-  \M "2" "C4"
-  \M "5" "A7"
-  \M "4" "B6"
-  \M "4" "C6" % le najin ...
-  \M "3" "C5" _
-  \M "4" "B7" _
-  \M "5" "A7" _
-  \M "4" "B6"
-  \M "3" "C5"
-  \M "4" "B6"
-  \M "3" "B5"
-  \M "5" "A7"
-  \M "2" "C4"
-  \M "3" "B5"
-  \M "3" "B5"
+  \M "4" "F6"
+  \M "3" "F5"
+  \M "5" "C7"
+  \M "2" "B4"
+  \M "3" "F5"
+  \M "3" "F5"
 }
 
 buttonsII-Aa = \lyricmode {
   % \m % ne
   \m \m \m \m % prižigaj lu-
-  \M "3" "C4" -
-  \M "3" "B5"
-  \M "2" "C4"
-  \M "3" "B5"
+  \M "3" "B4" -
+  \M "3" "F5"
+  \M "2" "B4"
+  \M "3" "F5"
   \m
-  \M "3" "B5"
-  \M "4" "B6" % sta-
-  \M "3" "C5" % ri
-  \M "2" "C4"
-  \M "3" "B5"
+  \M "3" "F5"
+  \M "4" "F6" % sta-
+  \M "3" "B5" % ri
+  \M "2" "B4"
+  \M "3" "F5"
 }
 buttonsI-Aa = \lyricmode {
-  % \M "3" "B3" % ne
-  \M "2" "C2" % pri
-  \M "3" "B3"
-  \M "1" "B2"
-  \M "3" "B3"
-  \M "2" "C3" -
-  \M "2" "B4"
-  \M "4" "A5"
-  \M "2" "B4"
+  % \M "3" "F3" % ne
+  \M "2" "B2" % pri
+  \M "3" "F3"
+  \M "1" "F2"
+  \M "3" "F3"
+  \M "2" "B3" -
+  \M "2" "F4"
+  \M "4" "C5"
+  \M "2" "F4"
+  \M "1" "F3"
+  \M "2" "F4"
+  \M "3" "F5" % sta-
+  \M "2" "B4" % ri
   \M "1" "B3"
-  \M "2" "B4"
-  \M "3" "B5" % sta-
-  \M "2" "C4" % ri
-  \M "1" "C3"
-  \M "2" "B4"
+  \M "2" "F4"
 }
 
 buttonsII-Ab = \lyricmode {
-  \M "4" "A5" % s te-
-  \M "3" "B5" % boj
-  \M "5" "A7" % no-
-  \M "4" "B6" % coj
+  \M "4" "C5" % s te-
+  \M "3" "F5" % boj
+  \M "5" "C7" % no-
+  \M "4" "F6" % coj
 }
 buttonsI-Ab = \lyricmode {
-  \M "3" "A4" % s te-
-  \M "2" "B4" % boj
-  \M "3" "B5" % no-
-  \M "3" "B5" % coj  
+  \M "3" "C4" % s te-
+  \M "2" "F4" % boj
+  \M "3" "F5" % no-
+  \M "3" "F5" % coj
 }
 
 buttonsII-Ac = \lyricmode {
-  \M "5" "A7" % je
-  \M "2" "C4" % dol-
-  \M "3" "B5" % ge
-  \M "3" "B5" % dni
+  \M "5" "C7" % je
+  \M "2" "B4" % dol-
+  \M "3" "F5" % ge
+  \M "3" "F5" % dni
 }
 buttonsI-Ac = \lyricmode {
-  \M "3" "B5" % je
-  \M "1" "C3" % dol-
-  \M "2" "B4" % ge
-  \M "2" "B4" % dni
+  \M "3" "F5" % je
+  \M "1" "B3" % dol-
+  \M "2" "F4" % ge
+  \M "2" "F4" % dni
 }
 
 buttonsII-Ad = \lyricmode {
   - - -
-  \M "2" "C4"
-  \M "4" "B6"
+  \M "2" "B4"
+  \M "4" "F6"
 }
 buttonsI-Ad = \lyricmode {
   - - -
-  \M "4" "A5"
-  \M "3" "B5"
+  \M "4" "C5"
+  \M "3" "F5"
 }
 
 buttonsII-Ba = \lyricmode {
-  \M "3" "C5" - % pleši
-  \M "5" "A7" % z me-
-  \M "4" "B7" % noj
-  \M "5" "A7" % ta
-  \M "3" "C5" % val-
-  \M "4" "B6" % ček
-  \M "3" "C5" % in
-  \M "2" "C4" % k me-
-  \M "3" "B5" % ni
+  \M "3" "B5" - % pleši
+  \M "5" "C7" % z me-
+  \M "4" "F7" % noj
+  \M "5" "C7" % ta
+  \M "3" "B5" % val-
+  \M "4" "F6" % ček
+  \M "3" "B5" % in
+  \M "2" "B4" % k me-
+  \M "3" "F5" % ni
 }
 buttonsI-Ba = \lyricmode {
-  \M "2" "C4" - % pleši
-  \M "1" "A6" % z me-
-  \M "3" "B6" % noj
-  \M "2" "B5" % ta
-  \M "2" "C4" % val-
-  \M "3" "B5" % ček
-  \M "2" "C4" % in
-  \M "1" "C3" % k me-
-  \M "2" "B4" % ni
+  \M "2" "B4" - % pleši
+  \M "1" "C6" % z me-
+  \M "3" "F6" % noj
+  \M "2" "F5" % ta
+  \M "2" "B4" % val-
+  \M "3" "F5" % ček
+  \M "2" "B4" % in
+  \M "1" "B3" % k me-
+  \M "2" "F4" % ni
 }
 
 buttonsII-Bb = \lyricmode {
-  \M "4" "A5" % se
-  \M "3" "B5" % ne-
-  \M "4" "B6" % žno
-  \M "5" "A7" % pri-
-  \M "4" "B6" % vij
+  \M "4" "C5" % se
+  \M "3" "F5" % ne-
+  \M "4" "F6" % žno
+  \M "5" "C7" % pri-
+  \M "4" "F6" % vij
 }
 buttonsI-Bb = \lyricmode {
-  \M "3" "A4" % se
-  \M "2" "B4" % ne-
-  \M "1" "A5" % žno
-  \M "3" "B5" % pri-
-  \M "3" "B5" % vij
+  \M "3" "C4" % se
+  \M "2" "F4" % ne-
+  \M "1" "C5" % žno
+  \M "3" "F5" % pri-
+  \M "3" "F5" % vij
 }
 
 buttonsII-Bc = \lyricmode {
-  \M "5" "A7" % sr-
-  \M "2" "C4" % ce
-  \M "3" "B5" % go-
-  \M "3" "B5" % ri
+  \M "5" "C7" % sr-
+  \M "2" "B4" % ce
+  \M "3" "F5" % go-
+  \M "3" "F5" % ri
 }
 buttonsI-Bc = \lyricmode {
-  \M "3" "B5" % sr-
-  \M "1" "C3" % ce
-  \M "2" "B4" % go-
-  \M "2" "B4" % ri
+  \M "3" "F5" % sr-
+  \M "1" "B3" % ce
+  \M "2" "F4" % go-
+  \M "2" "F4" % ri
 }
 
 buttonsII = \lyricmode {
@@ -339,13 +339,13 @@ buttonsII = \lyricmode {
   \buttonsII-Ba % najin ... ko v sreči
   \buttonsII-Bc
   \buttonsII-Ad
-  \M "3" "B5"
+  \M "3" "F5"
 }
 buttonsI = \lyricmode {
-  \M "3" "B3" % ne
+  \M "3" "F3" % ne
   \buttonsI-Aa % prižigaj ... valček
   \buttonsI-Ab % s teboj nocoj
-  \M "1" "B3" % nič
+  \M "1" "F3" % nič
   \buttonsI-Aa % besed ... kaj čutilo
   \buttonsI-Ac
   \buttonsI-Ad
@@ -355,7 +355,7 @@ buttonsI = \lyricmode {
   \buttonsI-Ba % najin ... ko v sreči
   \buttonsI-Bc
   \buttonsI-Ad
-  \M "2" "B4"
+  \M "2" "F4"
 }
 
 \score {
