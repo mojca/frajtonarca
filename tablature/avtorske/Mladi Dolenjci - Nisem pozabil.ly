@@ -131,14 +131,16 @@ melodyB = \fixed c' {
       <d b>4 <f f'>8 <f f'> <f f'>4 |
     }{
       <d b>2.~ |
-      <d b>4 \stopPush <c c'>8 <c c'> <c c'>4 |
+      <d b>4 \stopPush <c c'>8 <c c'>
       \once \override Score.RehearsalMark.direction = #DOWN
       \mark \markup { \small { \center-column { \line { "D.S." } \line { "al Fine" } } } }
+      <c c'>4 |
     }{
       \set Score.repeatCommands = #'((volta "4") end-repeat)
       \startPush
       <d b>2.~ |
       <d b>2 <d' f'>4 |
+      \stopPush
     }
   }
   <f' a'>2. |
@@ -322,7 +324,7 @@ buttonsIII-A = \lyricmode {
   \M "4" "B7" - \M "4" "F8" \M "4" "B7"
   \repeat unfold 5 { \m }
   \M "4" "F7" \M "3" "F6"
-  \M "4" "F7" \M "4" "F6"
+  \M "4" "F7" \M "3" "B5"
 }
 buttonsII-A = \lyricmode {
   \buttonsII-Aa
@@ -385,6 +387,9 @@ buttonsI-B = \lyricmode {
   \M "2" "B4" - - -
 }
 
+buttonsIV = \lyricmode {
+  \repeat unfold 58 { \m } \M "4" "B6"
+}
 buttonsIII = {
   \buttonsIII-U
   \buttonsIII-A
@@ -403,6 +408,7 @@ buttonsI = {
 
 \score {
 \new PianoStaff <<
+    \new Lyrics = "buttonsIV"  \with { \override VerticalAxisGroup.staff-affinity = #DOWN }
     \new Lyrics = "buttonsIII" \with { \override VerticalAxisGroup.staff-affinity = #DOWN }
     \new Lyrics = "buttonsII"  \with { \override VerticalAxisGroup.staff-affinity = #DOWN }
     \new Lyrics = "buttonsI"   \with { \override VerticalAxisGroup.staff-affinity = #DOWN }
@@ -452,6 +458,7 @@ buttonsI = {
       }
     }
 
+    \context Lyrics = "buttonsIV"  { \lyricsto "melody" { \buttonsIV  } }
     \context Lyrics = "buttonsIII" { \lyricsto "melody" { \buttonsIII } }
     \context Lyrics = "buttonsII"  { \lyricsto "melody" { \buttonsII  } }
     \context Lyrics = "buttonsI"   { \lyricsto "melody" { \buttonsI   } }
